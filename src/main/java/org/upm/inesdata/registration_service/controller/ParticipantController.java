@@ -32,7 +32,7 @@ public class ParticipantController {
    * @return a list of participants
    */
   @Operation(summary = "Get all participants", description = "Retrieves a list of all participants.")
-  @Secured("connector-admin")
+  @Secured("dataspace-admin")
   @GetMapping
   public List<Participant> getAllParticipants() {
     return participantService.findAll();
@@ -45,8 +45,8 @@ public class ParticipantController {
    * @return the created participant
    */
   @Operation(summary = "Create a participant", description = "Creates a new participant.",
-      security = @SecurityRequirement(name = "connector-admin"))
-  @Secured("connector-admin")
+      security = @SecurityRequirement(name = "dataspace-admin"))
+  @Secured("dataspace-admin")
   @PostMapping
   public Participant createParticipant(@RequestBody Participant participant) {
     return participantService.create(participant);
@@ -60,8 +60,8 @@ public class ParticipantController {
    * @return the updated participant
    */
   @Operation(summary = "Update a participant", description = "Updates an existing participant.",
-      security = @SecurityRequirement(name = "connector-admin"))
-  @Secured("connector-admin")
+      security = @SecurityRequirement(name = "dataspace-admin"))
+  @Secured("dataspace-admin")
   @PutMapping("/{id}")
   public Participant updateParticipant(@PathVariable String id, @RequestBody Participant participant) {
     return participantService.update(id, participant);
@@ -73,8 +73,8 @@ public class ParticipantController {
    * @param id the ID of the participant to delete
    */
   @Operation(summary = "Delete a participant", description = "Deletes a participant by ID.",
-      security = @SecurityRequirement(name = "connector-admin"))
-  @Secured("connector-admin")
+      security = @SecurityRequirement(name = "dataspace-admin"))
+  @Secured("dataspace-admin")
   @DeleteMapping("/{id}")
   public void deleteParticipant(@PathVariable String id) {
     participantService.deleteById(id);
