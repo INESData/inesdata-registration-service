@@ -35,4 +35,10 @@ public class Participant {
      */
     @NotNull
     private long createdAt;
+
+    /**
+     * The URL associated with the  shared vocabularies of participants.
+     */
+    @NotNull
+    private String sharedUrl;
 }
