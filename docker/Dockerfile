@@ -33,5 +33,7 @@ USER ${USER_NAME}
 WORKDIR ${APP_HOME}
 ENTRYPOINT ["./docker-entrypoint.sh"]
 
-# Copy the fatjar
-COPY --chown="${USER_NAME}:0" ./build/libs/registration-service-*.jar ${APP_HOME}/registration-service.jar
+# Copy the executable jar
+COPY --chown="${USER_NAME}:0" ./build/libs/*.jar ${APP_HOME}/
+RUN rm -f ${APP_HOME}/*plain.jar
+RUN mv ${APP_HOME}/registration-service-*.jar ${APP_HOME}/registration-service.jar
