@@ -11,7 +11,7 @@
       <notes><![CDATA[
       file name: sonar-scanner-api-2.16.2.588.jar
       ]]></notes>
-      <packageUrl regex="true">^pkg:maven/com\.squareup.\okhttp3/okhttp.*@.*$</packageUrl>
+      <packageUrl regex="true">^pkg:maven/com\.squareup\.okhttp3/okhttp.*@.*$</packageUrl>
       <cpe>cpe:/a:squareup:okhttp</cpe>
       <cpe>cpe:/a:squareup:okhttp3</cpe>
    </suppress>
