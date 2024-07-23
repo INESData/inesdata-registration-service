@@ -2,6 +2,8 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.1'
 	id 'io.spring.dependency-management' version '1.1.5'
+	id 'jacoco'
+	id 'org.sonarqube'
 }
 
 group = 'org.upm.inesdata'
@@ -27,6 +29,7 @@ dependencies {
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 	implementation 'org.liquibase:liquibase-core'
 	implementation 'org.projectlombok:lombok:1.18.22'
+	implementation "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.4.1.3373"
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'com.h2database:h2'
@@ -36,4 +39,12 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+sonar {
+	properties {
+		// Recommended way to use the plugin. Compilation must be ensured
+		// externally before calling the sonar task
+		property "sonar.gradle.skipCompile", "true"
+	}
 }
