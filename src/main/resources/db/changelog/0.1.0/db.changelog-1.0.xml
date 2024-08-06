@@ -6,6 +6,11 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <changeSet id="1" author="gmv">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="edc_participant"/>
+            </not>
+        </preConditions>
         <createTable tableName="edc_participant">
             <column name="participant_id" type="VARCHAR(255)">
                 <constraints primaryKey="true" nullable="false"/>
